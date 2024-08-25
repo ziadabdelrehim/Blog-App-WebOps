@@ -1,0 +1,316 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+display: flex;
+z-index: 3;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+align-items: center;
+background-color: #2691d9;
+justify-content: space-between; /* Space between h1 and image */
+padding: 10px;
+color: white;
+position: relative; /* Allows absolute positioning of h1 */
+}
+
+.navbar h1 {
+margin: 0;
+}
+
+
+
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.user-info span{
+  font-size: large;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.logout-btn {
+  background-color: #e74c3c; /* Change this to your preferred button color */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.navbar img {
+height: 40px;
+margin-left: 10px;
+}
+.logout-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  .user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-name {
+    font-size: 16px;
+  }
+
+.bg-img {
+  background: #b8ddf0;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  height: fit-content;
+}
+
+
+.container {
+  position: relative;
+  z-index: 2; /* Ensures it's on top of other elements */
+  padding: 20px;
+  background: rgba(200, 200, 200, 0.1);
+  box-shadow: -1px 4px 28px 0px rgba(0,0,0,1);
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.alert {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.post-form {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.84);
+    margin-bottom: 20px;
+}
+.post-form .input-group {
+    margin-bottom: 10px;
+    
+}
+.post-form input[type="text"] {
+  width: 100%; /* Changed from calc(100% - 120px) */
+  padding: 10px;
+  margin-right: 10px;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #222;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.submit-btn {
+  padding: 10px 20px;
+  background-color: #2691d9;
+  border: none;
+  border-radius:4px;
+  color: white;
+  font-family: 'Poppins',sans-serif;
+  
+}
+
+.submit-btn:hover {
+  background-color: #1b6fa4; /* Darker background on hover */
+}
+
+.comment-actions {
+  display: flex;
+  gap: 10px; /* Adjust the space between buttons as needed */
+}
+
+.Small-btn {
+  padding: 0;
+  background-color: #2691d9;
+  border: none;
+  border-radius:4px;
+  color: white;
+  font-family: 'Poppins',sans-serif;
+  width: 45px; /* Adjust width as needed */
+  height: 16px; /* Adjust height as needed */
+  font-size: 12px; /* Adjust font size if needed */
+  align-items: center; /* Vertically centers text */
+  justify-content: center; /* Horizontally centers text */
+  text-align: center; /* Center text alignment */
+}
+
+.Small-btn:hover {
+  background-color: #1b6fa4; /* Darker background on hover */
+}
+
+
+.post-form button {
+    padding: 10px 20px;
+  background-color: #2691d9;
+  border: none;
+  border-radius:4px;
+  color: white;
+  font-family: 'Poppins',sans-serif;
+}
+.post-list {
+    margin-top: 20px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.80);
+  
+}
+.post {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 10px;
+    position: relative;
+   border: 5px solid #ffff; /* Adjust the color as needed */
+  border-radius: 10px; /* Optional: to give rounded corners */
+}
+.post h2 {
+    margin-top: 0;
+  font-family: 'Poppins',sans-serif;
+}
+.post .details {
+    font-size: 0.9em;
+    color: #555;
+  font-family: 'Poppins',sans-serif;
+}
+.action-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    background-color: #30b1f2;
+    border: none;
+    border-radius:4px;
+    color: white;
+    font-family: 'Poppins',sans-serif;
+}
+.action-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+.action-menu div {
+    padding: 10px;
+    cursor: pointer;
+}
+.action-menu div:hover {
+    background: #f0f0f0;
+}
+.comment-form {
+    margin-top: 10px;
+}
+.comment-form input[type="text"] {
+    width: calc(100% - 120px);
+    padding: 5px;
+    margin-right: 10px;
+  background: transparent;
+  border: 1px solid #ccc; /* Adjust the color as needed */
+  border-radius: 4px; /* Optional: to give rounded corners */
+   color: #222;
+  font-size: 16px;
+  font-family: 'Poppins',sans-serif;
+}
+.comment-form button {
+    padding: 5px 10px;
+  background-color: #2691d9;
+  border: none;
+  border-radius:4px;
+  color: white;
+  font-family: 'Poppins',sans-serif;
+}
+.comments {
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+.comment {
+    border-bottom: 1px solid #ddd;
+    padding: 5px 0;
+    position: relative;
+}
+.comment .action-button {
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    top: 5px;
+    right: 10px;
+}
+.edit-form {
+    display: none;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+}
+.edit-form .input-group {
+    margin-bottom: 10px;
+}
+
+
+.comment-header {
+display: flex;
+align-items: center;
+margin-bottom: 5px;
+}
+
+.profile-pic {
+width: 30px; /* Adjust size as needed */
+height: 30px; /* Adjust size as needed */
+border-radius: 50%;
+margin-right: 10px;
+background-color: #ddd; /* Fallback color */
+}
+
+.comment-author {
+font-weight: bold;
+color: #333;
+font-family: 'Poppins', sans-serif;
+}

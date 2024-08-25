@@ -1,0 +1,17 @@
+<div class="comment">
+  <%= comment.content %>
+  <div class="comment-header">
+    <% if comment.user&.image&.url.present? %>
+      <%= image_tag(comment.user.image.url, alt: 'Profile Image', class: 'profile-img') %>
+      <span class="comment-author"><%= comment.user.name %></span>
+    <% end %>
+  </div>
+
+  <% if current_user == comment.user %>
+    <div class="comment-actions">
+      <%= link_to 'Edit', edit_post_comment_path(post_id: comment.post.id, id: comment.id), class: 'Small-btn' %>
+      
+      <%= button_to 'Delete', post_comment_path(post_id: comment.post.id, id: comment.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'Small-btn' %>
+    </div>
+  <% end %>
+</div>

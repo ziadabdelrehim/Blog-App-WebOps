@@ -1,0 +1,19 @@
+<div class="post-form">
+  <%= form_with(model: @post, local: true) do |form| %>
+    <div class="input-group">
+      <%= form.text_field :title, placeholder: "Post title..." %>
+    </div>
+  
+    <div class="input-group">
+      <%= form.text_area :body, placeholder: "Post body..." %>
+    </div>
+  
+    <div class="input-group">
+      <%= form.text_field :tag_ids, placeholder: "Post tags (comma-separated)..." %>
+    </div>
+  
+    <div class="input-group">
+      <%= form.submit 'Update Post', class: 'submit-btn' %>
+    </div>
+  <% end %>
+</div>

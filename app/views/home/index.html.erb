@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Blog</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="bg-img" style="background: url('<%= asset_path('bg.jpg') %>'); height: 100vh; background-size: cover; background-position: center;">
+      <div class="content">
+      <% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
+<% end %>
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+        <header>Login</header>
+        <%= form_with url: login_path, method: :post, local: true, class: 'login-form' do |form| %>
+          <div class="field">
+            <span class="fa fa-user"></span>
+            <%= form.email_field :email, required: true, placeholder: 'Email', autocomplete: 'email' %>
+          </div>
+          <div class="field space">
+            <span class="fa fa-lock"></span>
+            <%= form.password_field :password, required: true, placeholder: 'Password', class: 'pass-key', autocomplete: 'current-password' %>
+          </div>
+
+          <div class="field">
+            <%= form.submit 'LOGIN' %>
+          </div>
+        <% end %>
+
+        <div class="signup">
+          Don't have an account?
+          <%= link_to 'Signup', home_signup_path %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

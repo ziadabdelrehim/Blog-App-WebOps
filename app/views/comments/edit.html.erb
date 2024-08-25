@@ -1,0 +1,10 @@
+<h1>Edit Comment</h1>
+
+<%= form_with(model: [@post, @comment], local: true, url: post_comment_path(@post, @comment), method: :patch) do |form| %>
+  <div class="input-group">
+    <%= form.text_area :content, placeholder: "Edit your comment..." %>
+  </div>
+  <%= form.submit 'Update Comment', class: 'btn btn-update' %>
+<% end %>
+
+<%= button_to 'Cancel', post_path(@post), method: :get, class: 'btn btn-cancel' %>

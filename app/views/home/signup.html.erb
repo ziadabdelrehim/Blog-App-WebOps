@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Blog</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="bg-img" style="background: url('<%= asset_path('bg.jpg') %>'); height: 100vh; background-size: cover; background-position: center;">
+    <div class="content">
+  <header>Sign Up</header>
+  <%= form_with url: '/signup', method: :post, local: true, class: 'signup-form', html: { multipart: true } do |form| %>
+    <div class="profile-pic-wrapper">
+      <div class="profile-pic">
+        <%= image_tag 'https://via.placeholder.com/150', id: 'profileImage', alt: 'Profile Picture' %>
+      </div>
+      <button type="button" class="upload-button" onclick="document.getElementById('imageUpload').click();">Choose File</button>
+      <%= form.file_field :image, id: 'imageUpload', accept: 'image/*', required: true %>
+    </div>
+    <div class="field space">
+      <span class="fa fa-user"></span>
+      <%= form.text_field :name, required: true, placeholder: 'Name' %>
+    </div>
+    <div class="field space">
+      <span class="fa fa-envelope"></span>
+      <%= form.email_field :email, required: true, placeholder: 'Email' %>
+    </div>
+    <div class="field space">
+      <span class="fa fa-lock"></span>
+      <%= form.password_field :password, required: true, placeholder: 'Password', class: 'pass-key' %>
+    </div>
+    <div class="field" style="margin-top: 20px;">
+      <%= form.submit 'SIGN UP' %>
+    </div>
+  <% end %>
+
+  <div class="login">
+    Already have an account?
+    <%= link_to 'Login', home_index_path %>
+  </div>
+</div>
+
+    </div>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('imageUpload').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            document.getElementById('profileImage').src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    });
+  </script>
+
+  </body>
+</html>
+

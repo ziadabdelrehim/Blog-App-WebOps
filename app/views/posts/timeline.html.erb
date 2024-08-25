@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <%= stylesheet_link_tag 'timeline', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+    <div class="navbar">
+        <h1>My Blog</h1>
+        <% if current_user %>
+        <div class="user-info">
+            <%= image_tag current_user.image.url, alt: 'Profile Image', class: 'profile-img' %>
+            <span><%= current_user.name %></span>
+        </div>
+        <%= button_to 'Logout', logout_path, method: :delete, class: 'logout-btn' %>
+    <% else %>
+        <p>No user is logged in.</p>
+    <% end %>
+    
+    </div>
+
+    <div class="bg-img">
+        <div class="container">
+            <% if flash[:alert] %>
+                    <div class="alert alert-danger">
+                        <%= flash[:alert] %>
+            
+                    </div>
+            <% end %>
+            
+
+            <div class="post-form">
+                <%= form_with(model: @post, local: true, url: posts_path) do |form| %>
+                    <div class="input-group">
+                    <%= form.text_field :title, placeholder: "Post title..." %>
+                    </div>
+                    <div class="input-group">
+                    <%= form.text_field :body, placeholder: "Post body..." %>
+                    </div>
+                    <div class="input-group">
+                    <%= form.text_field :tag_ids, placeholder: "Post tags (comma-separated)..." %>
+                    </div>
+                    <%= form.submit 'Post', class: 'submit-btn' %>
+                <% end %>
+            </div>
+
+
+
+            <div class="post-list" id="postList">
+                <% if @posts.present? %>
+                    <% @posts.each do |post| %>
+                        <% if post %> <!-- Ensure that the post is not nil -->
+                            <%= render partial: 'post', locals: { post: post } %> <!-- Render the post partial -->
+                        <% end %>
+                    <% end %>
+                <% else %>
+                    <p>No posts available.</p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
